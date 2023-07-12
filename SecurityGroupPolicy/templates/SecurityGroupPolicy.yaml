@@ -1,0 +1,12 @@
+apiVersion: vpcresources.k8s.aws/v1beta1
+kind: SecurityGroupPolicy
+metadata:
+  name: allow-ingress-in-roboshop
+spec:
+  podSelector:
+    matchLabels:
+      application: roboshop
+
+  securityGroups:
+    groupIds:
+      - {{ .Values.securityGroupId}}  #sg-040de291003e6098d
